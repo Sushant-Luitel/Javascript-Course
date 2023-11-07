@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>ToDo App</p>
+    <input placeholder="Enter Todo-name" class="input-js" type="text" />
+    <button onclick="addToDo();" class="addbutton-js">Add</button>
+    <div class="toDoList"></div>
+    <script>
+      const myToDo = [];
+      function addToDo() {
+        let toDoHtml = "";
+        inputElement = document.querySelector(".input-js");
+        let name = inputElement.value;
+        myToDo.push(name);
+        inputElement.value = "";
+        console.log(myToDo);
+        myToDo.forEach((toDo) => {
+          toDoHtml += `<p>${toDo}</p>`;
+        });
+        document.querySelector(".toDoList").innerHTML = toDoHtml;
+      }
+    </script>
+  </body>
+</html>
