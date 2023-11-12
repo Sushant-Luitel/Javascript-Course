@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: 100px 100px 100px 100px 100px 100px;
+        column-gap: 10px;
+      }
+      .centered-div {
+        position: absolute;
+        top: 40%;
+        left: 40%;
+      }
+
+      .square {
+        height: 100px;
+        border: 1px solid black;
+      }
+
+      .first-square {
+        background-color: brown;
+      }
+      .second-square {
+        background-color: yellow;
+      }
+
+      .third-square {
+        background-color: purple;
+      }
+      .fourth-square {
+        background-color: pink;
+      }
+      .fifth-square {
+        background-color: green;
+      }
+      .sixth-square {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="centered-div">
+      <h1>Screen Color Changer Scheme</h1>
+      <div class="container">
+        <div class="square first-square"></div>
+        <div class="square second-square"></div>
+        <div class="square third-square"></div>
+        <div class="square fourth-square"></div>
+        <div class="square fifth-square"></div>
+        <div class="square sixth-square"></div>
+      </div>
+    </div>
+
+    <script>
+      const squareElement = document.querySelectorAll(".square");
+      squareElement.forEach((square) => {
+        square.addEventListener("click", (event) => {
+          console.log(event.target);
+          const color = getComputedStyle(square).backgroundColor;
+          document.body.style.backgroundColor = color;
+        });
+      });
+    </script>
+  </body>
+</html>
